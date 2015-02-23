@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #Richards Zheng
 
-#from flag_color.py import getColor
+from flag_color import *
 
 class Country():
 		# Create the class country
