@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#Richards Zheng
+#Richards Zheng Lars Backer
 
 from flag_color import *
 

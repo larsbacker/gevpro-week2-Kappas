@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#Lars Backer
+#Lars Backer Richards Zheng
 
 import sys
 from random import randrange

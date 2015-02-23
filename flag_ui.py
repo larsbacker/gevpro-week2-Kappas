@@ -7,17 +7,20 @@ from readnames import *
 from flag_color import *
 from random import randrange
 
+# Function to select 3 random values and return them
+def numberpicker():
+	return randrange(0, 255), randrange(0, 255), randrange(0, 255)
+
 # Function to read the file in and return a list of country names
 def readnames(stdin):
     countries = []
     countries1 = []
     for line in sys.stdin:
-        if line != "/n":
-            z = line
-            country1 = Country(line)
-            countries.append(country1)
-            countries1.append(z)
-    return countries1, countries
+        z = line.strip()
+        country1 = Country(line)
+        countries.append(country1)
+        countries1.append(z)
+    return countries1
 
 
 class Example(QtGui.QWidget):
@@ -50,7 +53,7 @@ class Example(QtGui.QWidget):
 		# Used readnames function to return a list into countrynames variable
 		# Added the list items into the QCombobox
 		# Changing QCombobox index activates flagChanger function
-        countrynames,countryobjecten = readnames(self)
+        countrynames = readnames(self)
         self.combo1.addItems(sorted(countrynames))
         self.combo1.currentIndexChanged.connect(self.flagChanger)
 
@@ -61,9 +64,9 @@ class Example(QtGui.QWidget):
     
         # Change the color of the three QFrames
     def flagChanger(self):
-        a, b, c = FlagColor()
-        a1, b1, c1 = randrange(0,255), randrange(0,255), randrange(0,255)
-        a2, b2, c2 = randrange(0,255), randrange(0,255), randrange(0,255)
+        a, b, c = numberpicker()
+        a1, b1, c1 = numberpicker()
+        a2, b2, c2 = numberpicker()
         self.col = QtGui.QColor(a, b, c)
         self.col1 = QtGui.QColor(a1, b1, c1)
         self.col2 = QtGui.QColor(a2, b2, c2)
