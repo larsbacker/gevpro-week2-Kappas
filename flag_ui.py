@@ -12,10 +12,11 @@ def numberpicker():
 	return randrange(0, 255), randrange(0, 255), randrange(0, 255)
 
 # Function to read the file in and return a list of country names
-def readnames(stdin):
+def readnames():
+    bestand = open("countries_list.txt")
     countries = []
     countries1 = []
-    for line in sys.stdin:
+    for line in bestand:
         z = line.strip()
         country1 = Country(line)
         countries.append(country1)
@@ -53,7 +54,7 @@ class Example(QtGui.QWidget):
 		# Used readnames function to return a list into countrynames variable
 		# Added the list items into the QCombobox
 		# Changing QCombobox index activates flagChanger function
-        countrynames = readnames(self)
+        countrynames = readnames()
         self.combo1.addItems(sorted(countrynames))
         self.combo1.currentIndexChanged.connect(self.flagChanger)
 
